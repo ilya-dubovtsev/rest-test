@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    build: ./postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=rest
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    container_name: golang_rest_db
+    ports:
+      - "5432:5432"
+    tty: true
+#  app:
+#    build:
+#      context: ./go
+#    volumes:
+#      - "../code:/code"
+#    container_name: golang_rest_app
+#    ports:
+#      - "8080:8080"
+#    tty: true
+#    depends_on:
+#      - db
